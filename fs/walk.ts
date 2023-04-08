@@ -116,7 +116,7 @@ export async function* walk(
         ({ isSymlink, isDirectory } = await Deno.lstat(path));
       }
 
-      if (isSymlink || isDirectory) {
+      if (isDirectory) {
         yield* walk(path, {
           maxDepth: maxDepth - 1,
           includeFiles,
